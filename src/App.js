@@ -7,16 +7,17 @@ class App extends Component {
     super();
     this.state = {
       weather: {}
+      //TODO: Add flag in state for switching between imperial/metric
     };
     this.fetchWeather();
   };
 
   fetchWeather() {
-    fetch('http://api.openweathermap.org/data/2.5/weather?zip=26301&APPID=49d7e6b3201708a377f7acfe7d5877e0').then(temp => {
-      return temp.text();
+    fetch('http://api.openweathermap.org/data/2.5/weather?id=4802316&units=imperial&APPID=49d7e6b3201708a377f7acfe7d5877e0').then(temp => {
+      return temp.json();
     }).then(data => {
       this.setState({weather: data});
-      console.log('HERE' + data);
+      console.log(data);
     })
 
   }
@@ -27,7 +28,7 @@ class App extends Component {
         <header className="App-header">
           <img src={icon} className="weather-icon" alt="logo" />
           <div id = "temperature">
-            87°
+            {/* {this.state.weather[0].main.temp} + '°' */}
           </div>
         </header>
       </div>
