@@ -17,7 +17,7 @@ class App extends Component {
       return temp.json();
     }).then(data => {
       this.setState({weather: data});
-      console.log(data);
+      console.log(this.state.weather.main.temp);
     })
 
   }
@@ -28,7 +28,9 @@ class App extends Component {
         <header className="App-header">
           <img src={icon} className="weather-icon" alt="logo" />
           <div id = "temperature">
-            {/* {this.state.weather[0].main.temp} + '°' */}
+            {this.state.weather != null &&
+              this.state.weather.main.temp
+            } + '°'
           </div>
         </header>
       </div>
