@@ -28,9 +28,7 @@ class App extends Component {
         <header className="App-header">
           <img src={icon} className="weather-icon" alt="logo" />
           <div id = "temperature">
-            {this.state.weather != null &&
-              this.state.weather.main.temp
-            } + '°'
+              {this.state.weather.main.temp} + '°'
           </div>
         </header>
       </div>
