@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import icon from './sun.png';
 import './App.css';
 
+/**
+ * Main class.
+ */
 class App extends Component {
 
   constructor() {
@@ -29,6 +32,7 @@ class App extends Component {
     }
   }
 
+  //Gets weather from openweathermap API, using latitude and longitude obtained via HTML5.
   fetchWeather() {
     console.log(this.state);
     let url = 'http://api.openweathermap.org/data/2.5/weather?lat=' + this.state.lat + '&lon=' + this.state.lon + '&units=' + this.state.units + '&APPID=49d7e6b3201708a377f7acfe7d5877e0';
@@ -36,7 +40,8 @@ class App extends Component {
       return temp.json();
     }).then(data => {
       console.log(data);
-      this.setState({ weather: data, temp: data.main.temp, 
+      this.setState({ weather: data, 
+                      temp: data.main.temp, 
                       description: data.weather[0].description })
       
       //document.title = this.state.weather.main.temp + '°';
