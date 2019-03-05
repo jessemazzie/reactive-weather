@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Canvas from './Canvas.js';
 import icon from './sun.png';
 import './App.css';
 
@@ -24,8 +25,8 @@ class App extends Component {
   getLocation() {
     if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-         console.log(position.coords.longitude);
-         console.log(position.coords.latitude);
+        //  console.log(position.coords.longitude);
+        //  console.log(position.coords.latitude);
          this.setState({lon: position.coords.longitude, 
                         lat: position.coords.latitude});
          console.log(this.state);
@@ -41,28 +42,24 @@ class App extends Component {
     fetch(url).then(temp => {
       return temp.json();
     }).then(data => {
-      console.log(data);
-      console.log(data.main);
-      // this.setState({ weather: data, 
-      //                 temp: data.main.temp, 
-      //                 description: data.weather[0].description })
+      // console.log(data);
+      // console.log(data.main);
+      this.setState({ weather: data, 
+                      temp: data.main.temp, 
+                      description: data.weather[0].description })
       
-      //document.title = this.state.weather.main.temp + '°';
+      document.title = this.state.weather.main.temp + '° - ' + this.state.description;
       
       console.log(this.state)
     })
 
   }
 
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <title></title>
-        </header>
-        <canvas>
-
-        </canvas>
+        <Canvas/>
       </div>
     );
   }
