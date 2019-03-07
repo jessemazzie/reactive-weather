@@ -4,6 +4,8 @@ class Canvas extends Component {
 
     componentDidMount() {
         const canvas = this.refs.canvas;
+        canvas.height = document.body.clientHeight;
+        canvas.width = document.body.clientWidth;
         const context = canvas.getContext("2d");
         this.drawCloud(context);
     }
@@ -30,7 +32,7 @@ class Canvas extends Component {
     render() {
         return(
             <div>
-                <canvas ref = "canvas"/>
+                <canvas id = "myCanvas" ref = "canvas"/>
             </div>
         )
     }
