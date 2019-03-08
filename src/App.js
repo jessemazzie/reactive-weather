@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Canvas from './Canvas.js';
+import Canvas from './PrecipitationCanvas.js';
 import icon from './sun.png';
 import './App.css';
 
@@ -52,9 +52,7 @@ class App extends Component {
       
       console.log(this.state)
     })
-
   }
-
 
   render() {
     return (
