@@ -43,13 +43,13 @@ class PrecipitationCanvas extends Component {
               
               
               var init = [];
-              var maxParts = 1000;
+              var maxParts = 100;
               for(var a = 0; a < maxParts; a++) {
                 init.push({
                   x: Math.random() * w,
                   y: Math.random() * h,
                   l: Math.random() * 1,
-                  xs: -4 + 2,
+                  xs: 1,
                   ys: Math.random() * 10 + 10
                 })
               }
@@ -90,11 +90,9 @@ class PrecipitationCanvas extends Component {
 
     render() {
         return(
-            <div>
-                <canvas id = "myCanvas" ref = "canvas"/>
-            </div>
+            <canvas id = "precipitationCanvas" ref = "canvas"/>
         )
     }
 }
 
-export default Canvas;
+export default PrecipitationCanvas;
