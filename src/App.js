@@ -16,7 +16,9 @@ class App extends Component {
       units: 'imperial',
       description: '',
       lat: '',
-      lon: ''
+      lon: '',
+      sunrise: '',
+      sunset: ''
     };
     this.getLocation();
     //this.fetchWeather();
@@ -44,9 +46,12 @@ class App extends Component {
     }).then(data => {
       // console.log(data);
       // console.log(data.main);
+      console.log(data);
       this.setState({ weather: data, 
                       temp: data.main.temp, 
-                      description: data.weather[0].description })
+                      description: data.weather[0].description,
+                      sunset: data.sys.sunset,
+                      sunrise: data.sys.sunrise })
       
       document.title = this.state.weather.main.temp + '° - ' + this.state.description;
       
