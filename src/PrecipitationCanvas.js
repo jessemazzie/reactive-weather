@@ -43,7 +43,7 @@ class PrecipitationCanvas extends Component {
               
               
               var init = [];
-              var maxParts = 100;
+              var maxParts = 10;
               for(var a = 0; a < maxParts; a++) {
                 init.push({
                   x: Math.random() * w,
